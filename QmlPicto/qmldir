@@ -1,0 +1,8 @@
+module QmlPicto
+
+# plugin qmlpicto
+class QmlPictoPlugin
+typeinfo qmlpicto.qmltypes
+
+singleton Awesome 0.1 Awesome.qml
+singleton Material 0.1 Material.qml

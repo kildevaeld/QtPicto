@@ -1,0 +1,3 @@
+[submodule "patternscpp"]
+	path = patternscpp
+	url = https://github.com/kildevaeld/patternscpp

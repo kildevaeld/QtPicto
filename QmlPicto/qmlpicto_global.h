@@ -1,0 +1,12 @@
+#ifndef QMLPICTO_GLOBAL_H
+#define QMLPICTO_GLOBAL_H
+
+#include <QtCore/qglobal.h>
+
+#if defined(QMLPICTO_LIBRARY)
+#  define QMLPICTOSHARED_EXPORT Q_DECL_EXPORT
+#else
+#  define QMLPICTOSHARED_EXPORT Q_DECL_IMPORT
+#endif
+
+#endif // QMLPICTO_GLOBAL_H

@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>fonts/fontawesome.ttf</file>
+	<file>fonts/material.ttf</file>
+    </qresource>
+</RCC>
+    

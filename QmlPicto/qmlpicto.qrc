@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/QmlPicto">
+        <file>qmldir</file>
+        <file>Awesome.qml</file>
+        <file>Material.qml</file>
+    </qresource>
+</RCC>

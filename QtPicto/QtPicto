@@ -1,0 +1,5 @@
+#pragma once
+
+#include "qtpicto.h"
+#include "awesome.h"
+#include "material.h"
