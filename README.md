@@ -37,7 +37,12 @@ Image {
   source: Awesome.gears // or Material
   // or
   // source: "image:/awesome/gears"
-  // source: "image:/material/add"
+  // source: "image:/material/add?color=#888888"
+}
+
+Picto {
+    source: Material.access_alarm
+    color: 'red'
 }
 
 
