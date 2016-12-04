@@ -35,6 +35,9 @@ import QmlPicto 0.1
 
 Image {
   source: Awesome.gears // or Material
+  // or
+  // source: "image:/awesome/gears"
+  // source: "image:/material/add"
 }
 
 
