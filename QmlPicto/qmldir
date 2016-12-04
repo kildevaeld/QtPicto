@@ -6,3 +6,5 @@ typeinfo qmlpicto.qmltypes
 
 singleton Awesome 0.1 Awesome.qml
 singleton Material 0.1 Material.qml
+Picto 0.1 Picto.qml
+

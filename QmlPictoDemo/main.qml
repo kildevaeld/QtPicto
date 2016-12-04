@@ -18,10 +18,11 @@ Window {
         }
     }
 
-    Image {
-        source: Material.ac_unit
-        width: 100
-        height: 100
+    Picto {
+        source: Material.access_alarm
+        anchors.fill: parent
+        color: 'red'
+        asynchronous: true
     }
 
     TextEdit {

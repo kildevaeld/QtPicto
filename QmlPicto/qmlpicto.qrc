@@ -3,5 +3,6 @@
         <file>qmldir</file>
         <file>Awesome.qml</file>
         <file>Material.qml</file>
+        <file>Picto.qml</file>
     </qresource>
 </RCC>
