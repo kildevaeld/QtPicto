@@ -50,7 +50,8 @@ QPixmap PictoImageProvider::requestPixmap(const QString &id, QSize *size, const 
         name = id.left(index);
         auto items = qs.queryItems();
 
-        for (auto pair: items) {
+        this->get_options(items, &color, &s);
+        /*for (auto pair: items) {
             if (pair.first == "color") {
                 color = QColor(pair.second);
             } else if (pair.first == "width") {
@@ -60,7 +61,7 @@ QPixmap PictoImageProvider::requestPixmap(const QString &id, QSize *size, const 
                 s.setHeight(pair.second.toInt());
                 size->setHeight(s.height());
             }
-        }
+        }*/
 
     }
 
@@ -68,4 +69,35 @@ QPixmap PictoImageProvider::requestPixmap(const QString &id, QSize *size, const 
     return m_gen->pixmap(name, s, color);
 
 
+}
+
+void PictoImageProvider::get_options(QList<QPair<QString, QString> > &list, QColor *color, QSize *size) {
+    for (auto pair: list) {
+        if (pair.first == "color") {
+            *color = QColor(pair.second);
+        } else if (pair.first == "width") {
+            bool ok;
+            auto i = pair.second.toInt(&ok);
+            if (ok && i > 0) {
+                size->setWidth(i);
+            } else {
+                auto d = pair.second.toDouble(&ok);
+                if (ok && d > 0) {
+                    size->setWidth((int)d);
+                }
+            }
+
+        } else if (pair.first == "height") {
+            bool ok;
+            auto i = pair.second.toInt(&ok);
+            if (ok && i > 0) {
+                size->setHeight(i);
+            } else {
+                auto d = pair.second.toDouble(&ok);
+                if (ok && d > 0) {
+                    size->setHeight((int)d);
+                }
+            }
+        }
+    }
 }

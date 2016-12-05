@@ -8,6 +8,8 @@ namespace picto {
     class PictoGenerator;
 }
 
+
+
 class PictoImageProvider: public QQuickImageProvider
 {
 public:
@@ -20,6 +22,7 @@ public:
 
 private:
     std::unique_ptr<picto::PictoGenerator> m_gen;
+    void get_options(QList<QPair<QString, QString> > &list, QColor *color, QSize *size);
 
 };
 

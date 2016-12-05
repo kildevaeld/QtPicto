@@ -22,7 +22,7 @@ Window {
         source: Material.access_alarm
         anchors.fill: parent
         color: 'red'
-        asynchronous: true
+
     }
 
     TextEdit {

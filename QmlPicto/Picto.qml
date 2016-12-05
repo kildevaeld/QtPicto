@@ -5,7 +5,7 @@ Item {
     property string source;
     property color color;
 
-    property alias asynchronous: __image.asynchronous
+    //property alias asynchronous: __image.asynchronous
     property alias autoTransform: __image.autoTransform
     property alias cache: __image.cache
     property alias fillMode: __image.fillMode
