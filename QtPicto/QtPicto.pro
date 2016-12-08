@@ -34,4 +34,4 @@ RESOURCES += \
 
 
 
-include(../patternscpp/patterns.pri)
+include(patternscpp/patterns.pri)
