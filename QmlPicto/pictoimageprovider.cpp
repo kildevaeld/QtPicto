@@ -18,7 +18,7 @@ QImage PictoImageProvider::requestImage(const QString &id, QSize *size, const QS
         *size = QSize(wh,wh);
     }
 
-    QSize s(requestedSize.width() > 0 ? requestedSize.width() : wh, requestedSize.height() > 0 ? requestedSize.height() : wh);
+    QSize s(requestedSize.width() > 0 ? requestedSize.width() : size->width(), requestedSize.height() > 0 ? requestedSize.height() : size->height());
 
 
     qDebug() << id;
@@ -32,15 +32,22 @@ QPixmap PictoImageProvider::requestPixmap(const QString &id, QSize *size, const 
 
     static int wh = 100;
 
-    if (!size) {
+    QString name = id;
+
+    if (id.startsWith("icons")) {
+        wh = 24;
+        name = id.mid(6);
+    }
+
+    qDebug() << name;
+
+    if (size) {
         *size = QSize(wh,wh);
     }
 
-
-
     QSize s(requestedSize.width() > 0 ? requestedSize.width() : size->width(), requestedSize.height() > 0 ? requestedSize.height() : size->height());
 
-    QString name = id;
+
     QColor color;
 
     if (id.contains("?")) {
@@ -51,6 +58,9 @@ QPixmap PictoImageProvider::requestPixmap(const QString &id, QSize *size, const 
         auto items = qs.queryItems();
 
         this->get_options(items, &color, &s);
+
+        size->setHeight(s.height());
+        size->setWidth(s.width());
         /*for (auto pair: items) {
             if (pair.first == "color") {
                 color = QColor(pair.second);

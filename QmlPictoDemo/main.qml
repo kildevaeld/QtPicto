@@ -1,12 +1,28 @@
 import QtQuick 2.5
 import QtQuick.Window 2.2
 import QmlPicto 0.1
+import QtQuick.Controls 1.4
+import QtQuick.Layouts 1.1
 
-Window {
+ApplicationWindow {
     visible: true
     width: 640
     height: 480
     title: qsTr("Hello World")
+
+    toolBar: ToolBar {
+        RowLayout {
+            ToolButton {
+
+                action: Action {
+                    text: "Hello"
+                    iconName: 'text-bold'
+                    iconSource: "image://awesome/icons/plus"
+                }
+            }
+        }
+
+    }
 
     MouseArea {
         anchors.fill: parent
@@ -21,7 +37,10 @@ Window {
     Picto {
         source: Material.access_alarm
         anchors.fill: parent
-        color: 'red'
+        //color: 'red'
+        //width: 100
+        //height: 100
+
 
     }
 
