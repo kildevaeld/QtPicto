@@ -35,13 +35,9 @@ ApplicationWindow {
     }
 
     Picto {
-        source: Material.access_alarm
+        name: Material.access_alarm
         anchors.fill: parent
-        //color: 'red'
-        //width: 100
-        //height: 100
-
-
+        color: 'red'
     }
 
     TextEdit {

@@ -16,6 +16,7 @@ SOURCES += \
     #../QtPicto/qtpicto.cpp \
     #../QtPicto/awesome.cpp \
     #../QtPicto/material.cpp \
+    qmlpictoview.cpp
 
 
 
@@ -29,6 +30,7 @@ HEADERS += \
     #../QtPicto/awesome.h \
     #../QtPicto/material.h \
     #../QtPicto/QtPicto \
+    qmlpictoview.h
 
 DISTFILES = qmldir \
     qmlpicto.pri
@@ -72,3 +74,4 @@ INSTALLS += target qmldir picto
 RESOURCES += \
     qmlpicto.qrc
 
+OTHER_FILES += qmlpicto.pri

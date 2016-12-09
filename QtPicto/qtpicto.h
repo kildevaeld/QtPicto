@@ -8,7 +8,7 @@
 #include <memory>
 #include <typeindex>
 
-#include "../patternscpp/singleton.h"
+#include "singleton.h"
 
 namespace picto {
 
@@ -83,6 +83,8 @@ public:
 
         return std::unique_ptr<PictoGenerator>(new PictoGenerator(p, m_painter));
     }
+
+    std::unique_ptr<PictoGenerator>provider(const QString &name);
 
     QStringList providers() const;
 

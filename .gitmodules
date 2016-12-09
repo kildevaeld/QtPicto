@@ -1,0 +1,3 @@
+[submodule "QtPicto/patternscpp"]
+	path = QtPicto/patternscpp
+	url = https://github.com/kildevaeld/patternscpp

@@ -33,5 +33,4 @@ RESOURCES += \
     qtpicto.qrc
 
 
-
 include(patternscpp/patterns.pri)

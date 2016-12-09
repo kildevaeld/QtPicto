@@ -179,6 +179,20 @@ Picto::Picto(): m_painter(new PictoCharPainter()) {
 }
 
 
+std::unique_ptr<PictoGenerator> Picto::provider(const QString &name) {
+    auto values = m_providers.values();
+
+    auto p = std::find_if(values.begin(), values.end(), [&](PictoProvider *p) {
+        return p->providerName() == name;
+    });
+
+    if (p != std::end(values)) {
+        return std::unique_ptr<PictoGenerator>(new PictoGenerator(p[0], m_painter));
+    }
+
+    return nullptr;
+}
+
 QStringList Picto::providers() const {
     auto keys = m_providers.values();
 
