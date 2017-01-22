@@ -1,6 +1,5 @@
 #include "qmlpicto_plugin.h"
 #include "qmlpicto.h"
-#include "keytable.h"
 #include "qmlpictoview.h"
 #include <qqml.h>
 
