@@ -9,12 +9,10 @@ android {
 
 
 SOURCES += $$PWD/qmlpicto_plugin.cpp \
-    $$PWD/keytable.cpp \
     $$PWD/pictoimageprovider.cpp \
     $$PWD/qmlpictoview.cpp
 
 HEADERS += $$PWD/qmlpicto_plugin.h \
-    $$PWD/keytable.h \
     $$PWD/pictoimageprovider.h \
     $$PWD/qmlpicto.h \
     $$PWD/qmlpictoview.h

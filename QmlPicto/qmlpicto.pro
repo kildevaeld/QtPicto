@@ -11,7 +11,6 @@ INCLUDEPATH += ../
 # Input
 SOURCES += \
     qmlpicto_plugin.cpp \
-    keytable.cpp \
     pictoimageprovider.cpp \
     #../QtPicto/qtpicto.cpp \
     #../QtPicto/awesome.cpp \
@@ -23,7 +22,6 @@ SOURCES += \
 HEADERS += \
     qmlpicto_plugin.h \
     qmlpicto.h \
-    keytable.h \
     pictoimageprovider.h \
     \
     #../QtPicto/qtpicto.h \
