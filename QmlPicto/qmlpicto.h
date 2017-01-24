@@ -1,41 +1,44 @@
 #ifndef QMLPICTO_H
 #define QMLPICTO_H
 
-#include <QQuickItem>
-#include <QQuickImageProvider>
-#include <QQmlEngine>
-#include <QtPicto/QtPicto>
 #include "pictoimageprovider.h"
+#include <QQmlEngine>
+#include <QQuickImageProvider>
+#include <QQuickItem>
+#include <QtPicto/QtPicto>
 
 namespace picto {
 
+template <class T>
+PictoImageProvider *imageProvider(
+    QQmlImageProviderBase::ImageType imageType = QQmlImageProviderBase::Pixmap,
+    QQmlImageProviderBase::Flags flags = QQmlImageProviderBase::Flags()) {
 
-    template<class T>
-    PictoImageProvider *imageProvider(QQmlImageProviderBase::ImageType imageType = QQmlImageProviderBase::Pixmap, QQmlImageProviderBase::Flags flags = QQmlImageProviderBase::Flags()) {
+  auto provider = picto::provider<T>();
 
-        auto provider = picto::provider<T>();
+  if (!provider)
+    return nullptr;
 
-        if (!provider) return nullptr;
+  return new PictoImageProvider(provider.release(), imageType, flags);
+}
 
-        return new PictoImageProvider(provider.release(), imageType, flags);
+template <class T>
+void imageProvider(
+    QQmlEngine *engine,
+    QQmlImageProviderBase::ImageType imageType = QQmlImageProviderBase::Pixmap,
+    QQmlImageProviderBase::Flags flags = QQmlImageProviderBase::Flags()) {
 
-    }
+  std::unique_ptr<picto::PictoGenerator> provider = picto::provider<T>();
 
-    template<class T>
-    void imageProvider(QQmlEngine *engine, QQmlImageProviderBase::ImageType imageType = QQmlImageProviderBase::Pixmap, QQmlImageProviderBase::Flags flags = QQmlImageProviderBase::Flags()) {
+  if (!provider)
+    return;
 
-        std::unique_ptr<picto::PictoGenerator> provider = picto::provider<T>();
+  QString name = provider->provider()->providerName();
 
-        if (!provider) return ;
+  auto p = new PictoImageProvider(provider.release(), imageType, flags);
 
-        QString name = provider->provider()->providerName();
-
-        auto p = new PictoImageProvider(provider.release(), imageType, flags);
-
-        engine->addImageProvider(name, p);
-
-    }
-
+  engine->addImageProvider("picto-" + name, p);
+}
 }
 
 #endif // QMLPICTO_H

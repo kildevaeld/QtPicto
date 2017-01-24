@@ -15,6 +15,10 @@ interface Options {
     enum:string;
     font: string;
 }
+const excludes = [
+    'try', 'linux', 'font', 'code', 'name', 'explicit', 'class', 'delete', 'public', 'print'
+]
+
 
 async function generate_fontawesome () {
 
@@ -34,7 +38,7 @@ async function generate_fontawesome () {
         let name = line_a[0].replace(/-/gm, '_').trim();
         let code = line_a[1].replace(/[;"\\]*/g,'');
 
-        if (nrRe.test(name) || name == 'try' || name == 'linux' || name == 'font' || name == 'code') name = 'fa_' + name;
+        if (nrRe.test(name) || excludes.indexOf(name) > -1) name = 'fa_' + name;
 
         icons.push({name:name, code: "0x" + code});
 
@@ -90,9 +94,7 @@ async function generate_qml(options:Options) {
 
 }
 
-const excludes = [
-    'try', 'linux', 'font', 'code', 'name', 'explicit', 'class', 'delete', 'public'
-]
+
 
 async function generate_material () {
 

@@ -666,7 +666,7 @@ static const QHash<QString, int> MaterialHash = {
 	{"power_settings_new", material::power_settings_new }, 
 	{"pregnant_woman", material::pregnant_woman }, 
 	{"present_to_all", material::present_to_all }, 
-	{"print", material::print }, 
+	{"ma_print", material::ma_print }, 
 	{"priority_high", material::priority_high }, 
 	{"ma_public", material::ma_public }, 
 	{"publish", material::publish }, 

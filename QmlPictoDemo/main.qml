@@ -17,11 +17,20 @@ ApplicationWindow {
                 action: Action {
                     text: "Hello"
                     iconName: 'text-bold'
-                    iconSource: "image://awesome/icons/plus"
+                    iconSource: Picto.icon(Awesome.plus)
                 }
             }
         }
 
+    }
+
+    Image {
+        source: Picto.image(Awesome.adjust)
+        width:200
+        height:200
+        sourceSize {
+            width: 200; height: 200
+        }
     }
 
     MouseArea {
@@ -30,15 +39,18 @@ ApplicationWindow {
             console.log('hello')
             console.log(qsTr('Clicked on background. Text: "' + textEdit.text + '"'))
             console.log(Awesome.address_book)
-
+            picto.name = Awesome.address_book
         }
     }
 
-    Picto {
+    PictoImage {
+        id: picto
         name: Material.access_alarm
         anchors.fill: parent
         color: 'red'
     }
+
+
 
     TextEdit {
         id: textEdit

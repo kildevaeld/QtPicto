@@ -524,7 +524,7 @@ static const QHash<QString, int> AwesomeHash = {
 	{"plus_square_o", awesome::plus_square_o }, 
 	{"podcast", awesome::podcast }, 
 	{"power_off", awesome::power_off }, 
-	{"print", awesome::print }, 
+	{"fa_print", awesome::fa_print }, 
 	{"product_hunt", awesome::product_hunt }, 
 	{"puzzle_piece", awesome::puzzle_piece }, 
 	{"qq", awesome::qq }, 

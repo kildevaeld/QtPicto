@@ -550,7 +550,7 @@ public:
         plus_square_o = 0xf196, 
         podcast = 0xf2ce, 
         power_off = 0xf011, 
-        print = 0xf02f, 
+        fa_print = 0xf02f, 
         product_hunt = 0xf288, 
         puzzle_piece = 0xf12e, 
         qq = 0xf1d6, 

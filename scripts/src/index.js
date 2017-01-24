@@ -2,18 +2,21 @@
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator.throw(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
         function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments)).next());
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-const request = require('orange.request');
-const hbs = require('handlebars');
-const fs = require('mz/fs');
-const Path = require('path');
+const request = require("orange.request");
+const hbs = require("handlebars");
+const fs = require("mz/fs");
+const Path = require("path");
 const faRe = /^\$fa-var-/;
 const nrRe = /^\d+/;
 const outPath = Path.resolve("../QtPicto");
+const excludes = [
+    'try', 'linux', 'font', 'code', 'name', 'explicit', 'class', 'delete', 'public', 'print'
+];
 function generate_fontawesome() {
     return __awaiter(this, void 0, void 0, function* () {
         let str = yield request.get('https://raw.githubusercontent.com/FortAwesome/' +
@@ -25,7 +28,7 @@ function generate_fontawesome() {
             let line_a = line.substr(8).trim().split(': ');
             let name = line_a[0].replace(/-/gm, '_').trim();
             let code = line_a[1].replace(/[;"\\]*/g, '');
-            if (nrRe.test(name) || name == 'try' || name == 'linux' || name == 'font' || name == 'code')
+            if (nrRe.test(name) || excludes.indexOf(name) > -1)
                 name = 'fa_' + name;
             icons.push({ name: name, code: "0x" + code });
         }
@@ -59,9 +62,6 @@ function generate_qml(options) {
         yield fs.writeFile(Path.resolve(`../QmlPicto/${options.provider}.qml`), out);
     });
 }
-const excludes = [
-    'try', 'linux', 'font', 'code', 'name', 'explicit', 'class', 'delete', 'public'
-];
 function generate_material() {
     return __awaiter(this, void 0, void 0, function* () {
         let str = yield request.get('https://raw.githubusercontent.com/google/material-design-icons/master/iconfont/codepoints').text(null, true);

@@ -692,7 +692,7 @@ public:
         power_settings_new = 0xe8ac, 
         pregnant_woman = 0xe91e, 
         present_to_all = 0xe0df, 
-        print = 0xe8ad, 
+        ma_print = 0xe8ad, 
         priority_high = 0xe645, 
         ma_public = 0xe80b, 
         publish = 0xe255, 
