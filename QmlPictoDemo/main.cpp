@@ -1,14 +1,17 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
-#include "qmlpicto.h"
+#include <QmlPicto/QmlPicto>
 
 int main(int argc, char *argv[])
 {
+
+	picto::init();
+
     QGuiApplication app(argc, argv);
 
     QQmlApplicationEngine engine;
-    //engine.addImportPath("qrc:/");
-    QPM_INIT(engine)
+    //engine.addImportPath("../");
+    engine.addImportPath("qrc:/");
     //engine.addImageProvider("awesome", picto::imageProvider<picto::awesome>());
 
     picto::imageProvider<picto::awesome>(&engine);

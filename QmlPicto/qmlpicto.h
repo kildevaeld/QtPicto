@@ -9,6 +9,8 @@
 
 namespace picto {
 
+  void init();
+
 template <class T>
 PictoImageProvider *imageProvider(
     QQmlImageProviderBase::ImageType imageType = QQmlImageProviderBase::Pixmap,

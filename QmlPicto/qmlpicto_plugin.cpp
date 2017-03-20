@@ -7,7 +7,7 @@ class PictoRegisterHelper {
 
 public:
   PictoRegisterHelper(const char *uri) {
-
+    
     qmlRegisterType<QmlPictoView>(uri, 0, 1, "PictoImage");
     qmlRegisterSingletonType<PictoResolver>(
         uri, 0, 1, "Picto", &PictoResolver::qmlResolverRegister);

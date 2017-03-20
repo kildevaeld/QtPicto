@@ -1,0 +1,5 @@
+#pragma once
+
+#include "qmlpicto.h"
+#include "qmlpicto_plugin.h"
+#include "qmlpictoview.h"
