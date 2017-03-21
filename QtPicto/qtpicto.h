@@ -8,7 +8,6 @@
 #include <memory>
 #include <typeindex>
 
-#include "singleton.h"
 
 namespace picto {
 
@@ -62,8 +61,7 @@ private:
 };
 
 
-class Picto: public Patterns::LazySingleton<Picto> {
-    friend class Patterns::LazySingleton<Picto>;
+class Picto {
 
 public:
     template<class T>
@@ -87,6 +85,11 @@ public:
     std::unique_ptr<PictoGenerator>provider(const QString &name);
 
     QStringList providers() const;
+
+    static Picto &instance() {
+        static Picto i;
+        return i;
+    }
 
 private:
     Picto();
