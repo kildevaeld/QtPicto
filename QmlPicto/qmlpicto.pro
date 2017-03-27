@@ -11,11 +11,12 @@ INCLUDEPATH += ../
 # Input
 SOURCES += \
     qmlpicto_plugin.cpp \
+    qmlpicto.cpp \
     pictoimageprovider.cpp \
     #../QtPicto/qtpicto.cpp \
     #../QtPicto/awesome.cpp \
     #../QtPicto/material.cpp \
-    qmlpictoview.cpp
+    qmlpictoview.cpp \
 
 
 
